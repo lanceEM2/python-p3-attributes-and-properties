@@ -12,7 +12,7 @@ APPROVED_BREEDS = [
 ]
 
 class Dog:
-    def __init__(self, name, breed):
+    def __init__(self, name=None, breed=None):  # positional arguments, arguments assigned value.
         self._name = None
         self._breed = None
         self.name = name
@@ -24,7 +24,7 @@ class Dog:
 
     @name.setter
     def name(self, value):
-        if type(value) is not str or not (1 <= len(value) <= 25):
+        if not value or not (1 <= len(value) <= 25):
             print("Name must be a string between 1 and 25 characters.")
         else:
             self._name = value
@@ -41,5 +41,6 @@ class Dog:
             self._breed = value
 
 # Example usage:
-dog_instance = Dog(name="Fido", breed="Beagle")
+dog_instance = Dog(name="", breed="Beagle")
+
     
